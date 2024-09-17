@@ -7,7 +7,7 @@ void main() {
 }
 
 class ElektrikciWeb extends StatelessWidget {
-  const ElektrikciWeb({Key? key}) : super(key: key);
+  const ElektrikciWeb({super.key});
 
   @override
   Widget build(BuildContext context) {

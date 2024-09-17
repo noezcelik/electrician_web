@@ -7,11 +7,11 @@ class CommonTextButton extends StatelessWidget {
   final Color textColor;
 
   const CommonTextButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.onPressed,
     this.textColor = Colors.blue,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

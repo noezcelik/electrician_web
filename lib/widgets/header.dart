@@ -51,7 +51,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             : [
                 CommonTextButton(
                   label: 'Accueil',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/');
+                  },
                 ),
                 CommonTextButton(
                   label: 'Services',
