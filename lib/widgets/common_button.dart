@@ -5,12 +5,14 @@ class CommonTextButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   final Color textColor;
+  final IconData? icon; // İkon eklemek için
 
   const CommonTextButton({
     super.key,
     required this.label,
     required this.onPressed,
     this.textColor = Colors.blue,
+    this.icon, // İsteğe bağlı olarak ikon ekleyebiliriz
   });
 
   @override
@@ -19,14 +21,24 @@ class CommonTextButton extends StatelessWidget {
 
     return TextButton(
       onPressed: onPressed,
-      child: Text(
-        label,
-        style: TextStyle(
-          color: Colors.grey[800],
-          fontWeight: FontWeight.bold,
-          fontSize:
-              screenWidth < 600 ? 16 : 18, // Ekran genişliğine göre yazı boyutu
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, color: textColor, size: 18), // İkon boyutu ve rengi
+            const SizedBox(width: 8), // İkon ve metin arasında boşluk
+          ],
+          Text(
+            label,
+            style: TextStyle(
+              color: textColor,
+              fontWeight: FontWeight.bold,
+              fontSize: screenWidth < 600
+                  ? 16
+                  : 18, // Ekran genişliğine göre yazı boyutu
+            ),
+          ),
+        ],
       ),
     );
   }
